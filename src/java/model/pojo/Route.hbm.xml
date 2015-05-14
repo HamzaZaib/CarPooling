@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 14, 2015 9:15:18 AM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping auto-import="true">
+    <class name="model.pojo.Route" table="route" catalog="carpooling">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <property name="arrival" type="time">
+            <column name="Arrival" length="8" not-null="true" />
+        </property>
+        <property name="departure" type="time">
+            <column name="Departure" length="8" not-null="true" />
+        </property>
+        <property name="destination" type="string">
+            <column name="Destination" not-null="true" />
+        </property>
+        <property name="intermediate" type="string">
+            <column name="Intermediate" not-null="true" />
+        </property>
+        <property name="source" type="string">
+            <column name="Source" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

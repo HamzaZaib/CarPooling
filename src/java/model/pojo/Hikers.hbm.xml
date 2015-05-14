@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 14, 2015 9:15:18 AM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping auto-import="true">
+    <class name="model.pojo.Hikers" table="hikers" catalog="carpooling">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="foreign">
+                <param name="property">users</param>
+            </generator>
+        </id>
+        <one-to-one name="users" class="model.pojo.Users" constrained="true"></one-to-one>
+        <property name="hikeId" type="int">
+            <column name="hikeID" not-null="true" />
+        </property>
+        <property name="luggage" type="int">
+            <column name="luggage" not-null="true" />
+        </property>
+        <property name="seats" type="int">
+            <column name="seats" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

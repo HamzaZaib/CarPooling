@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 14, 2015 9:15:18 AM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping auto-import="true">
+    <class name="model.pojo.Users" table="users" catalog="carpooling">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <property name="email" type="string">
+            <column name="Email" length="60" not-null="true" />
+        </property>
+        <property name="gender" type="int">
+            <column name="Gender" not-null="true" />
+        </property>
+        <property name="hikesProviding" type="binary">
+            <column name="hikesProviding" />
+        </property>
+        <property name="hikesUsing" type="binary">
+            <column name="hikesUsing" />
+        </property>
+        <property name="name" type="string">
+            <column name="Name" length="60" not-null="true" />
+        </property>
+        <one-to-one name="hikers" class="model.pojo.Hikers"></one-to-one>
+        <one-to-one name="hikes" class="model.pojo.Hikes"></one-to-one>
+    </class>
+</hibernate-mapping>
