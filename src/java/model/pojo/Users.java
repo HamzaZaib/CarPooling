@@ -11,6 +11,7 @@ public class Users  implements java.io.Serializable {
 
      private Integer id;
      private String email;
+     private String password;
      private int gender;
      private byte[] hikesProviding;
      private byte[] hikesUsing;
@@ -22,12 +23,13 @@ public class Users  implements java.io.Serializable {
     }
 
 	
-    public Users(String email, int gender, String name) {
+    public Users(String email, int gender, String name, String Password) {
         this.email = email;
         this.gender = gender;
         this.name = name;
+        this.password=Password;
     }
-    public Users(String email, int gender, byte[] hikesProviding, byte[] hikesUsing, String name, Hikers hikers, Hikes hikes) {
+    public Users(String email, int gender, byte[] hikesProviding, byte[] hikesUsing, String name, Hikers hikers, Hikes hikes, String Password) {
        this.email = email;
        this.gender = gender;
        this.hikesProviding = hikesProviding;
@@ -35,6 +37,7 @@ public class Users  implements java.io.Serializable {
        this.name = name;
        this.hikers = hikers;
        this.hikes = hikes;
+       this.password=Password;
     }
    
     public Integer getId() {
@@ -51,6 +54,15 @@ public class Users  implements java.io.Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
+    
+    public String getPassword() {
+        return this.password;
+    }
+    
+    public void setPassword(String password) {
+        this.password=password;
+    }
+    
     public int getGender() {
         return this.gender;
     }

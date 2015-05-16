@@ -10,7 +10,7 @@
        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
 
     <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping"/>
-    <bean class="controller.UsersController" id="UsersController"></bean>
+    <bean class="controller.SignIn" id="SignIn"></bean>
     <!--
     Most controllers will use the ControllerClassNameHandlerMapping above, but
     for the index controller we are using ParameterizableViewController, so we must
@@ -19,8 +19,9 @@
     <bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
         <property name="mappings">
             <props>
-                <prop key="index.htm">indexController</prop>
-                <prop key="Users.htm">UsersController</prop>
+                <prop key="Index.htm">IndexController</prop>
+                <prop key="Users.htm">SignIn</prop>
+                <prop key="Home.htm">HomeController</prop>                
             </props>
         </property>
     </bean>
@@ -33,8 +34,11 @@
     <!--
     The index controller.
     -->
-    <bean name="indexController"
+    <bean name="IndexController"
           class="org.springframework.web.servlet.mvc.ParameterizableViewController"
-          p:viewName="index" />
+          p:viewName="Index" />
+    <bean name="HomeController"
+          class="org.springframework.web.servlet.mvc.ParameterizableViewController"
+          p:viewName="Home" />
 
 </beans>

@@ -7,6 +7,7 @@
 package controller;
 
 import java.util.List;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.dao.UsersDAO;
@@ -18,16 +19,19 @@ import org.springframework.web.servlet.mvc.Controller;
  *
  * @author hamza
  */
-public class UsersController implements Controller {
+public class SignIn implements Controller {
 
     @Override
     public ModelAndView handleRequest(HttpServletRequest hsr, HttpServletResponse hsr1) throws Exception {
-        ModelAndView mv= new ModelAndView("Users");
+        
+        ModelAndView mv=new ModelAndView("Users");
         try {
-            System.out.println("hahahahahaha");
-            List<Users> lst = UsersDAO.getUsers();
-            mv.addObject("Users",lst);
-            System.out.println("hahahahahaha");
+            String email=hsr.getParameter("Email").toString();
+            String password=hsr.getParameter("Password").toString();
+            UsersDAO temp=new UsersDAO();
+            if(temp.verifyUser(email, password)){
+                mv=new ModelAndView("Home");
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }

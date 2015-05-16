@@ -17,6 +17,24 @@ import org.hibernate.Session;
  * @author hamza
  */
 public class UsersDAO {
+    public boolean verifyUser(String email, String Password){
+        List<Users> lst =null;
+        try{
+            Session session = HibernateUtil.getSessionFactory().openSession();
+            
+            String hql = "from Users where Password='"+Password+"' and Email='"+email+"'";
+            Query query= session.createQuery(hql);
+            lst=query.list();
+            if(lst.size()>0){
+                return true;
+            }
+            session.close();
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+        return false;
+    }
     public static List<Users> getUsers(){
         List<Users> lst =null;
         try{

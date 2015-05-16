@@ -23,6 +23,9 @@
         <property name="name" type="string">
             <column name="Name" length="60" not-null="true" />
         </property>
+        <property name="password" type="string">
+            <column name="Password" length="20" not-null="true" />
+        </property>
         <one-to-one name="hikers" class="model.pojo.Hikers"></one-to-one>
         <one-to-one name="hikes" class="model.pojo.Hikes"></one-to-one>
     </class>
